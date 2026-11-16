@@ -1,0 +1,100 @@
+### 1. [200 OK] Consultar todos los usuarios
+GET http://localhost:3000/usuarios
+
+### 2. [201 Created] Registrar un usuario válido
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido": "Martínez",
+  "telefono": "98765432",
+  "correo": "carlos@correo.com"
+}
+
+### 3. [400 Bad Request] Intento de registro con campos vacíos o solo espacios
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "   ",
+  "apellido": "López",
+  "telefono": "98765432",
+  "correo": "ana@correo.com"
+}
+
+### 4. [400 Bad Request] Intento de registro con teléfono inválido (menos de 8 dígitos)
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "López",
+  "telefono": "123",
+  "correo": "ana@correo.com"
+}
+
+### 5. [400 Bad Request] Intento de registro con correo inválido
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "López",
+  "telefono": "98765432",
+  "correo": "correo-invalido-sin-arroba"
+}
+
+### 6. [200 OK] Buscar usuarios existentes por término
+GET http://localhost:3000/usuarios/buscar/Carlos
+
+### 7. [404 Not Found] Buscar texto que no coincida con ningún usuario
+GET http://localhost:3000/usuarios/buscar/XYZinexistente999
+
+### 8. [200 OK] Consultar usuario por ID (reemplazar con un ID que exista en tu BD)
+GET http://localhost:3000/usuarios/3
+
+### 9. [400 Bad Request] Consultar usuario con ID inválido (letras)
+GET http://localhost:3000/usuarios/abc
+
+### 10. [404 Not Found] Consultar usuario inexistente
+GET http://localhost:3000/usuarios/99999
+
+### 11. [400 Bad Request] Modificar con ID no numérico
+PUT http://localhost:3000/usuarios/abc
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "López",
+  "telefono": "98765432",
+  "correo": "ana@correo.com"
+}
+
+### 12. [404 Not Found] Modificar usuario inexistente (ID 99999)
+PUT http://localhost:3000/usuarios/99999
+Content-Type: application/json
+
+{
+  "nombre": "Fantasma",
+  "apellido": "Inexistente",
+  "telefono": "98765432",
+  "correo": "fantasma@correo.com"
+}
+
+### 13. [200 OK] Modificar usuario existente (reemplazar con ID que exista)
+PUT http://localhost:3000/usuarios/3
+Content-Type: application/json
+
+{
+  "nombre": "Pedro Modificado",
+  "apellido": "López",
+  "telefono": "99887766",
+  "correo": "pedro_nuevo@correo.com"
+}
+
+### 14. [404 Not Found] Eliminar usuario inexistente (ID 99999)
+DELETE http://localhost:3000/usuarios/99999
+
+### 15. [200 OK] Eliminar usuario existente (reemplazar con ID que exista)
+DELETE http://localhost:3000/usuarios/1

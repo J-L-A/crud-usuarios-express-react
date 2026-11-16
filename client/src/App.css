@@ -1,0 +1,215 @@
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+ 
+body {
+  background-color: #ecebdc;
+  color: #333;
+}
+
+/* Layout principal: barra lateral + contenido */
+.app-contenedor {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Menú lateral vertical izquierdo */
+.sidebar {
+  width: 220px;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  color: #38bdf8;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+/* Área de contenido principal */
+.contenido-principal {
+  flex: 1;
+  padding: 30px 40px;
+  max-width: 1200px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.contenido-principal h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+/* Tarjeta contenedora para secciones */
+.tarjeta-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-panel h3 {
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #1e293b;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+/* Formulario con inputs alineados en cuadrícula (grid) */
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #475569;
+}
+
+.campo-grupo input,
+.buscador-caja input {
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.campo-grupo input:focus,
+.buscador-caja input:focus {
+  border-color: #2563eb;
+}
+
+/* Buscador */
+.buscador-caja {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.buscador-caja input {
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Botones con colores para cada acción */
+.boton {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.boton:hover {
+  opacity: 0.9;
+}
+
+/* Verde: Guardar */
+.boton-guardar {
+  background-color: #16a34a;
+  color: white;
+}
+
+/* Azul: Buscar y Refrescar */
+.boton-azul {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Naranja: Modificar */
+.boton-modificar {
+  background-color: #ea580c;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* Rojo: Eliminar */
+.boton-eliminar {
+  background-color: #dc2626;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* Gris: Cancelar / Limpiar */
+.boton-cancelar {
+  background-color: #64748b;
+  color: white;
+}
+
+/* Tabla con encabezados destacados y filas legibles */
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.tabla-usuarios th {
+  background-color: #f1f5f9;
+  color: #334155;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+.tabla-usuarios td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-usuarios tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.acciones-celda {
+  display: flex;
+  gap: 8px;
+}
