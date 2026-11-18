@@ -95,14 +95,15 @@ app.get('/usuarios/buscar/:termino', async (req, res) => {
         }
 
         const [resultados] = await pool.query(
-            "SELECT * FROM usuarios WHERE nombre LIKE ? OR apellido LIKE ? OR correo LIKE ?",
-            [`%${termino}%`, `%${termino}%`, `%${termino}%`]
+            "SELECT * FROM usuarios WHERE id LIKE ? OR nombre LIKE ? OR apellido LIKE ? OR telefono LIKE ? OR correo LIKE ? ORDER BY id DESC",
+            [`%${termino}%`, `%${termino}%`, `%${termino}%`, `%${termino}%`, `%${termino}%`]
         );
 
         // Si no arrojó resultados (404 Not Found)
         if (resultados.length === 0) {
             return res.status(404).json({ mensaje: "No se encontraron usuarios con ese criterio." });
         }
+
 
         // Si encontró resultados (200 OK)
         return res.status(200).json(resultados);

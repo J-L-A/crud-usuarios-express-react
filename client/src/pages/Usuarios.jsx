@@ -26,6 +26,14 @@ function Usuarios() {
     }, 4000); // 4000 ms = 4 segundos
   };
 
+  const manejarCambioInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const cargarUsuarios = async (termino = "") => {
     try {
       setCargando(true);
@@ -175,7 +183,7 @@ function Usuarios() {
         <div className="buscador-caja">
           <input
             type="text"
-            placeholder="Buscar por nombre, apellido o correo..."
+            placeholder="Buscar por ID, nombre, apellido, teléfono o correo..."
             value={buscar}
             onChange={(e) => setBuscar(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && manejarBuscar()}
@@ -203,6 +211,7 @@ function Usuarios() {
                 name="nombre"
                 placeholder="Ej: Juan"
                 value={formData.nombre}
+                onChange={manejarCambioInput}
               />
             </div>
 
@@ -213,6 +222,7 @@ function Usuarios() {
                 name="apellido"
                 placeholder="Ej: Pérez"
                 value={formData.apellido}
+                onChange={manejarCambioInput}
               />
             </div>
 
@@ -224,6 +234,7 @@ function Usuarios() {
                 placeholder="Ej: 98765432"
                 maxLength={8}
                 value={formData.telefono}
+                onChange={manejarCambioInput}
               />
             </div>
 
@@ -234,6 +245,7 @@ function Usuarios() {
                 name="correo"
                 placeholder="ejemplo@correo.com"
                 value={formData.correo}
+                onChange={manejarCambioInput}
               />
             </div>
           </div>
