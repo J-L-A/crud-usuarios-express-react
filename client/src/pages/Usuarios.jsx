@@ -26,14 +26,6 @@ function Usuarios() {
     }, 4000); // 4000 ms = 4 segundos
   };
 
-  const manejarCambioInput = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev, // Mantener los valores anteriores del formulario
-      [name]: value
-    }));
-  };
-
   const cargarUsuarios = async (termino = "") => {
     try {
       setCargando(true);
@@ -211,7 +203,6 @@ function Usuarios() {
                 name="nombre"
                 placeholder="Ej: Juan"
                 value={formData.nombre}
-                onChange={manejarCambioInput}
               />
             </div>
 
@@ -222,7 +213,6 @@ function Usuarios() {
                 name="apellido"
                 placeholder="Ej: Pérez"
                 value={formData.apellido}
-                onChange={manejarCambioInput}
               />
             </div>
 
@@ -234,7 +224,6 @@ function Usuarios() {
                 placeholder="Ej: 98765432"
                 maxLength={8}
                 value={formData.telefono}
-                onChange={manejarCambioInput}
               />
             </div>
 
@@ -245,7 +234,6 @@ function Usuarios() {
                 name="correo"
                 placeholder="ejemplo@correo.com"
                 value={formData.correo}
-                onChange={manejarCambioInput}
               />
             </div>
           </div>
